@@ -1,0 +1,220 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-sans: "Outfit", sans-serif;
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1rem;
+  color-scheme: light;
+  --background: oklch(0.98 0.012 145);
+  --foreground: oklch(0.2 0.035 155);
+  --card: oklch(0.995 0.006 145);
+  --card-foreground: oklch(0.2 0.035 155);
+  --popover: oklch(0.995 0.006 145);
+  --popover-foreground: oklch(0.2 0.035 155);
+  --primary: oklch(0.52 0.16 151);
+  --primary-foreground: oklch(0.99 0.01 145);
+  --primary-glow: oklch(0.68 0.15 159);
+  --secondary: oklch(0.82 0.13 91);
+  --secondary-foreground: oklch(0.24 0.05 145);
+  --muted: oklch(0.94 0.025 145);
+  --muted-foreground: oklch(0.48 0.035 155);
+  --accent: oklch(0.88 0.08 174);
+  --accent-foreground: oklch(0.22 0.045 155);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.84 0.035 150);
+  --input: oklch(0.87 0.03 150);
+  --ring: oklch(0.55 0.15 151);
+  --chart-1: oklch(0.52 0.16 151);
+  --chart-2: oklch(0.73 0.14 164);
+  --chart-3: oklch(0.75 0.15 92);
+  --chart-4: oklch(0.62 0.13 218);
+  --chart-5: oklch(0.67 0.14 35);
+  --sidebar: oklch(0.96 0.02 145);
+  --sidebar-foreground: oklch(0.2 0.035 155);
+  --sidebar-primary: oklch(0.52 0.16 151);
+  --sidebar-primary-foreground: oklch(0.99 0.01 145);
+  --sidebar-accent: oklch(0.92 0.035 145);
+  --sidebar-accent-foreground: oklch(0.22 0.045 155);
+  --sidebar-border: oklch(0.84 0.035 150);
+  --sidebar-ring: oklch(0.55 0.15 151);
+  --gradient-hero: linear-gradient(120deg, var(--primary), var(--primary-glow) 45%, var(--secondary));
+  --shadow-glow: 0 20px 60px -15px color-mix(in oklab, var(--primary) 55%, transparent);
+  --vip-card-start: oklch(0.2 0.06 155);
+  --vip-card-end: oklch(0.29 0.08 160);
+  --vip-gold-start: oklch(0.9 0.13 90);
+  --vip-gold-end: oklch(0.72 0.16 76);
+  --vip-gold-muted: oklch(0.84 0.12 91);
+  --vip-card-muted: oklch(0.84 0.025 150);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.16 0.035 155);
+  --foreground: oklch(0.96 0.018 145);
+  --card: oklch(0.21 0.04 155);
+  --card-foreground: oklch(0.96 0.018 145);
+  --popover: oklch(0.21 0.04 155);
+  --popover-foreground: oklch(0.96 0.018 145);
+  --primary: oklch(0.72 0.16 153);
+  --primary-foreground: oklch(0.16 0.035 155);
+  --primary-glow: oklch(0.78 0.14 165);
+  --secondary: oklch(0.83 0.14 91);
+  --secondary-foreground: oklch(0.2 0.04 150);
+  --muted: oklch(0.26 0.04 155);
+  --muted-foreground: oklch(0.73 0.035 150);
+  --accent: oklch(0.34 0.06 170);
+  --accent-foreground: oklch(0.96 0.018 145);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 11%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.72 0.16 153);
+  --chart-1: oklch(0.72 0.16 153);
+  --chart-2: oklch(0.78 0.14 165);
+  --chart-3: oklch(0.83 0.14 91);
+  --chart-4: oklch(0.72 0.13 218);
+  --chart-5: oklch(0.72 0.14 35);
+  --sidebar: oklch(0.2 0.04 155);
+  --sidebar-foreground: oklch(0.96 0.018 145);
+  --sidebar-primary: oklch(0.72 0.16 153);
+  --sidebar-primary-foreground: oklch(0.16 0.035 155);
+  --sidebar-accent: oklch(0.26 0.04 155);
+  --sidebar-accent-foreground: oklch(0.96 0.018 145);
+  --sidebar-border: oklch(1 0 0 / 11%);
+  --sidebar-ring: oklch(0.72 0.16 153);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@layer base {
+  body { font-family: var(--font-sans); }
+  h1, h2, h3, .font-display { font-family: var(--font-display); }
+}
+
+@utility text-gradient {
+  background: var(--gradient-hero);
+  background-clip: text;
+  color: transparent;
+}
+@utility glass {
+  background: color-mix(in oklab, var(--card) 65%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--border);
+}
+@utility shadow-glow { box-shadow: var(--shadow-glow); }
+
+.vip-pass-card {
+  color: var(--vip-gold-start);
+  background: linear-gradient(128deg, var(--vip-card-start), var(--vip-card-end));
+  border-color: color-mix(in oklab, var(--vip-gold-start) 46%, transparent);
+}
+
+.vip-pass-pattern {
+  background-image: repeating-linear-gradient(125deg, transparent 0 30px, color-mix(in oklab, var(--vip-gold-start) 5%, transparent) 31px 32px);
+}
+
+.vip-pass-brand {
+  color: var(--vip-gold-start);
+}
+
+.vip-pass-brand-text {
+  background: linear-gradient(100deg, var(--vip-gold-start), var(--vip-gold-end) 48%, var(--vip-gold-start) 62%, var(--vip-gold-end));
+  background-clip: text;
+  color: transparent;
+  background-size: 220% 100%;
+  animation: shimmer 4s linear infinite;
+}
+
+.vip-pass-seal {
+  border-color: color-mix(in oklab, var(--vip-gold-start) 68%, transparent);
+  box-shadow: inset 0 0 0 4px color-mix(in oklab, var(--vip-gold-start) 10%, transparent);
+  color: var(--vip-gold-start);
+}
+
+@keyframes float-y { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)); } 50% { transform: translateY(-18px) rotate(var(--r,0deg)); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes confetti { 0% { transform: translate(0,0) rotate(0); opacity: 1; } 100% { transform: translate(var(--x), var(--y)) rotate(720deg); opacity: 0; } }
+@keyframes shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+
+@utility animate-float { animation: float-y 6s ease-in-out infinite; }
+@utility animate-marquee { animation: marquee 35s linear infinite; }
+@utility animate-rise { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; }
+@utility animate-confetti { animation: confetti 1.4s cubic-bezier(.1,.7,.3,1) forwards; }
+@utility animate-shimmer { background-size: 200% 100%; animation: shimmer 3s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}

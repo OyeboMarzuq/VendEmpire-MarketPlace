@@ -1,0 +1,7 @@
+- [x] Create a personalized, downloadable VIP pass after signup.
+- [x] Make each customer's VIP pass browsable and inspectable in the admin dashboard.
+- [x] Refresh the theme to green and gold, with light/dark mode and polished motion.
+- [x] Verify signup-to-pass download, theme switching, responsive width, tests, and preview health.
+- [ ] Sign into the protected admin dashboard and inspect a stored customer pass (requires admin password).- [x] Bring the VendEmpire code into this project with its own database.
+- [x] Add a vendor waitlist page, founding vendor pass, and Vendors tab in admin.
+- [ ] Set the admin password so the dashboard can be opened (needs the owner's chosen password).
